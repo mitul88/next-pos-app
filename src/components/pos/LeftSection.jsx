@@ -13,7 +13,7 @@ import PosCart from "./PosCart";
 const LeftSection = () => {
   return (
     <div>
-        <div className='w-full mx-2 lg:mx-5 py-2  flex items-center justify-between'>
+        <div className='py-2  flex items-center justify-between'>
             <button className="px-3"><RxHamburgerMenu size={25} /></button>
             <LinkButton icon={<SlNote size={25} />} text="Note" link="https://www.facebook.com" />
             <LinkButton icon={<BsTruck size={25}/>} text="Shipping" link="https://www.google.com" />
@@ -22,7 +22,7 @@ const LeftSection = () => {
         </div>
 
         <div className="pb-2">
-            <button className="flex items-center justify-between w-full mx-2 lg:mx-5 py-3 px-2 md:px-5 bg-blue-100 text-blue-800 text-bold text-md lg:text-lg rounded">
+            <button className="flex items-center justify-between w-full py-3 px-2 md:px-5 bg-blue-100 text-blue-800 text-bold text-md lg:text-lg rounded">
                 <div className="flex items-center">
                     <FaCircleUser size={25}className="mr-3"/>
                     Add user

@@ -5,7 +5,7 @@ import { FaPlusCircle } from "react-icons/fa";
 
 const PosCart = () => {
   return (
-    <div className="w-full mx-2 lg:mx-5">
+    <div className="w-full">
             <div className="flex items-center justify-between">
                 <div className="basis-1/12">
                     <FaRegEdit size={25}/>
