@@ -7,7 +7,7 @@ const PosLayout = (props) => {
         <div className="w-full lg:w-1/2 px-2 lg:px-5">
             <LeftSection />
         </div>
-        <div className="w-full lg:w-1/2">
+        <div className="w-full mt-5 lg:mt-0 lg:w-1/2 pr-2 lg:pr-5">
             {props.children}
         </div>
     </div>

@@ -1,8 +1,11 @@
 import React from 'react'
+import SearchProducts from './SearchProducts'
 
 const ProductSection = () => {
   return (
-    <div className='bg-red-800'>ProductSection</div>
+    <div className='py-1'>
+        <SearchProducts />
+    </div>
   )
 }
 
