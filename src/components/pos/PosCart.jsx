@@ -1,12 +1,26 @@
+'use client'
 import { FaRegEdit } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { FaMinusCircle } from "react-icons/fa";
 import { FaPlusCircle } from "react-icons/fa";
+import useCartStore from "@/store/cartStore";
 
 const PosCart = () => {
+    const { items, addToCart, removeFromCart } = useCartStore();
+
+    const handleAddToCart = (item) => {
+        addToCart(item)
+    }
+
+    const handleRemoveFromCart = (item) => {
+        removeFromCart(item)
+    }
+
   return (
-    <div className="w-full">
-            <div className="flex items-center justify-between">
+    <div className="w-full flex flex-col">
+
+        {items.map((item) => (
+            <div className="flex items-center justify-between" key={item.id}>
                 <div className="basis-1/12">
                     <FaRegEdit size={25}/>
                 </div>
@@ -18,9 +32,9 @@ const PosCart = () => {
                         <span className="text-md lg:text-lg">& 92.00</span>
                     </div>
                     <div className="flex items-center text-[#B4B4B3]">
-                        <button><FaMinusCircle size={20}/></button>
+                        <button onClick={()=>handleRemoveFromCart(item.id)}><FaMinusCircle size={20}/></button>
                         <span className="font-bold mx-3">1</span>
-                        <button><FaPlusCircle size={20}/></button>
+                        <button onClick={()=>handleAddToCart({id: item.id, title: item.title, price:item.price})}><FaPlusCircle size={20}/></button>
                     </div>
                     <div>
                         <span className="text-md lg:text-lg">& 92.00</span>
@@ -30,6 +44,8 @@ const PosCart = () => {
                     <FaRegTrashCan size={25} className="text-red-600"/>
                 </div>
             </div>
+        ))}
+            
         </div>
   )
 }
