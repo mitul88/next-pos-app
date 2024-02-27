@@ -8,7 +8,7 @@ const ProductItem = ({title, image, price}) => {
         <div className='bg-[#DCF2F1]'>
             <span className='font-bold text-[#638889]'>${price}</span>
         </div>
-        <div className="border border-t-[#B4B4B8]">
+        <div className="border border-t-[#B4B4B8] border-b-0">
             <span className='text-sm font-bold text-[#638889]'>{title}</span>
         </div>
     </div>

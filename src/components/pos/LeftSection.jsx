@@ -8,6 +8,7 @@ import { IoIosTimer } from "react-icons/io";
 import { FaCircleUser } from "react-icons/fa6";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import PosCart from "./PosCart";
+import CartTotal from "./CartTotal";
 
 
 const LeftSection = () => {
@@ -32,6 +33,7 @@ const LeftSection = () => {
         </div>
 
         <PosCart />
+        <CartTotal />
     </div>
   )
 }
