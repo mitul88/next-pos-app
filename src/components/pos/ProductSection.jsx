@@ -1,12 +1,17 @@
-import React from 'react'
+'use client'
 import SearchProducts from './SearchProducts'
 import LinkButton from './LinkButton'
 
 import { BsThreeDotsVertical } from "react-icons/bs";
 import ProductItem from './ProductItem';
 import { products } from '../../../mock/products';
+import useCartStore from '@/store/cartStore';
 
 const ProductSection = () => {
+  const { addToCart, removeFromCart } = useCartStore();
+  const handleAddToCart = (item) => {
+    addToCart(item)
+  }
   return (
     <div className='pb-1 bg-[#ECF9FF]'>
         <SearchProducts />
@@ -22,7 +27,7 @@ const ProductSection = () => {
 
         <div className='w-full p-4 grid grid-cols-4 gap-4'>
           {products.map((item, index)=> (
-            <ProductItem title={item.title} image={item.img} price={item.price} key={item.id} />
+            <ProductItem item={item} addToCart={handleAddToCart} key={item.id} />
           ))}
         </div>
     </div>

@@ -26,22 +26,22 @@ const PosCart = () => {
                 </div>
                 <div className="basis-10/12 px-3 py-1 flex items-center justify-between border-t border-l border-r border-t-[#C7C8CC] border-l-[#C7C8CC] border-r-[#C7C8CC] rounded-t flex items-center w-max">
                     <div>
-                        <span className="text-md lg:text-lg">Pure White & Black Sleeve</span>
+                        <span className="text-md lg:text-lg">{item.title}</span>
                     </div>
                     <div>
-                        <span className="text-md lg:text-lg">& 92.00</span>
+                        <span className="text-md lg:text-lg">& {item.price}</span>
                     </div>
                     <div className="flex items-center text-[#B4B4B3]">
-                        <button onClick={()=>handleRemoveFromCart(item.id)}><FaMinusCircle size={20}/></button>
+                        <button><FaMinusCircle size={20}/></button>
                         <span className="font-bold mx-3">1</span>
-                        <button onClick={()=>handleAddToCart({id: item.id, title: item.title, price:item.price})}><FaPlusCircle size={20}/></button>
+                        <button><FaPlusCircle size={20}/></button>
                     </div>
                     <div>
                         <span className="text-md lg:text-lg">& 92.00</span>
                     </div>
                 </div>
                 <div className="basis-1/12 flex justify-end">
-                    <FaRegTrashCan size={25} className="text-red-600"/>
+                    <FaRegTrashCan onClick={()=>handleRemoveFromCart(item.id)} size={25} className="text-red-600"/>
                 </div>
             </div>
         ))}
