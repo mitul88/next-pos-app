@@ -8,13 +8,13 @@ import { products } from '../../../mock/products';
 
 const ProductSection = () => {
   return (
-    <div className='pb-1 bg-[#DCF2F1]'>
+    <div className='pb-1 bg-[#ECF9FF]'>
         <SearchProducts />
         <div className='mt-3 px-4 flex items-center justify-between'>
-          <LinkButton text="All Categories" color="#B4B4B3" solid="white"/>
-          <LinkButton text="Electronics" color="#B4B4B3" solid="white"/>
-          <LinkButton text="Men Fashion" color="#B4B4B3" solid="white"/>
-          <LinkButton text="Women Fashion" color="#B4B4B3" solid="white"/>
+          <LinkButton text="All Categories" color="#638889" solid="white"/>
+          <LinkButton text="Electronics" color="#638889" solid="white"/>
+          <LinkButton text="Men Fashion" color="#638889" solid="white"/>
+          <LinkButton text="Women Fashion" color="#638889" solid="white"/>
           <button>
             <BsThreeDotsVertical size={25}/>
           </button>
