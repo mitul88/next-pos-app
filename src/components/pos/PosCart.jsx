@@ -6,11 +6,7 @@ import { FaPlusCircle } from "react-icons/fa";
 import useCartStore from "@/store/cartStore";
 
 const PosCart = () => {
-    const { items, addToCart, removeFromCart, increaseQuantity, decreaseQuantity } = useCartStore();
-
-    const handleAddToCart = (item) => {
-        addToCart(item)
-    }
+    const { items, removeFromCart, increaseQuantity, decreaseQuantity } = useCartStore();
 
     const handleRemoveFromCart = (item) => {
         removeFromCart(item)
@@ -33,7 +29,7 @@ const PosCart = () => {
                 <div className="basis-1/12">
                     <FaRegEdit size={25}/>
                 </div>
-                <div className={`basis-10/12 px-3 py-1 flex items-center justify-between border-t border-l border-r border-t-[#C7C8CC] border-l-[#C7C8CC] border-r-[#C7C8CC] flex items-center w-max ${index == 0 && "rounded-t"}`}>
+                <div className={`basis-10/12 px-3 py-1 flex items-center justify-between border-t border-l border-r border-t-[#C7C8CC] border-l-[#C7C8CC] border-r-[#C7C8CC] flex items-center w-max ${items.length - 1 ? "border-b-[#C7C8CC]": null} ${index == 0 && "rounded-t"}`}>
                     <div className="w-3/6">
                         <span className="text-md lg:text-lg">{item.title}</span>
                     </div>

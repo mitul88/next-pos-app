@@ -5,6 +5,10 @@ const useCartStore = create((set) => ({
     items: [],
     subTotal: 0,
     totalAmount: 0,
+    tax: 25.00,
+    shipping: 5.50,
+    discount: 10.00,
+    productQuantity: 0,
 
     addToCart: (item) =>
       set((state) => {
@@ -21,23 +25,35 @@ const useCartStore = create((set) => ({
               return i
             }
           });
+          let productQuantity = 0;
           let updatedSubTotal = 0;
-          updatedCart.forEach(item => updatedSubTotal += item.itemTotal)
-          return { items: updatedCart, subTotal: updatedSubTotal };
+          updatedCart.forEach(item => {
+            updatedSubTotal += item.itemTotal;
+            productQuantity += item.quantity
+          })
+          return { items: updatedCart, subTotal: updatedSubTotal, productQuantity };
         }
 
         // Add new item to the cart
         const updatedCart = [...state.items, { ...item, quantity: 1 }]
+        let productQuantity = 0;
         let updatedSubTotal = 0;
-        updatedCart.forEach(item => updatedSubTotal += item.itemTotal)
-        return { items: updatedCart, subTotal: updatedSubTotal  };
+        updatedCart.forEach(item => {
+          updatedSubTotal += item.itemTotal
+          productQuantity += item.quantity
+        })
+        return { items: updatedCart, subTotal: updatedSubTotal, productQuantity  };
       }),
 
     removeFromCart: (itemId) => set((state) => {
       let updatedCart = state.items.filter((item) => item.id !== itemId)
+      let productQuantity = 0;
       let updatedSubTotal = 0;
-      updatedCart.forEach(item => updatedSubTotal += item.itemTotal)
-      return { items: updatedCart, subTotal: updatedSubTotal };
+      updatedCart.forEach(item => {
+        updatedSubTotal += item.itemTotal
+        productQuantity += item.quantity
+      })
+      return { items: updatedCart, subTotal: updatedSubTotal, productQuantity };
     }),
 
     increaseQuantity: (itemId) => set((state) => {
@@ -49,9 +65,13 @@ const useCartStore = create((set) => ({
         }
         return item;
       });
+      let productQuantity = 0;
       let updatedSubTotal = 0;
-      updatedCart.forEach(item => updatedSubTotal += item.itemTotal)
-      return { items: updatedCart, subTotal: updatedSubTotal };
+      updatedCart.forEach(item => {
+        updatedSubTotal += item.itemTotal
+        productQuantity += item.quantity
+      })
+      return { items: updatedCart, subTotal: updatedSubTotal, productQuantity };
     }),
     
     decreaseQuantity: (itemId) => set((state) => {
@@ -63,9 +83,13 @@ const useCartStore = create((set) => ({
         }
         return item;
       });
+      let productQuantity = 0;
       let updatedSubTotal = 0;
-      updatedCart.forEach(item => updatedSubTotal += item.itemTotal)
-      return { items: updatedCart, subTotal: updatedSubTotal };  
+      updatedCart.forEach(item => {
+        updatedSubTotal += item.itemTotal
+        productQuantity += item.quantity
+      })
+      return { items: updatedCart, subTotal: updatedSubTotal, productQuantity }; 
     })
   }));
   

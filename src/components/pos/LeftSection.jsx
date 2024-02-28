@@ -10,10 +10,9 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import PosCart from "./PosCart";
 import CartTotal from "./CartTotal";
 
-
 const LeftSection = () => {
   return (
-    <div>
+    <div className="min-h-screen relative">
         <div className='py-2  flex items-center justify-between'>
             <button className="px-3"><RxHamburgerMenu size={25} /></button>
             <LinkButton icon={<SlNote size={25} />} text="Note"  link="https://www.facebook.com" />
@@ -33,7 +32,16 @@ const LeftSection = () => {
         </div>
 
         <PosCart />
-        <CartTotal />
+    
+        <div className="absolute bottom-0 left-0 w-full">
+            <CartTotal />
+            <div className='py-2  flex items-center justify-between'>
+                <LinkButton icon={<SlNote size={25} />} text="Cancel"  link="https://www.facebook.com" />
+                <LinkButton icon={<BsTruck size={25}/>} text="Hold"  link="https://www.google.com" />
+                <LinkButton icon={<IoIosTimer size={25}/>} text="Discount"  link="https://www.google.com" />
+                <LinkButton icon={<IoIosAddCircle size={25} />} text="Pay Now"  link="https://www.twitter.com" />
+            </div>
+        </div>
     </div>
   )
 }
