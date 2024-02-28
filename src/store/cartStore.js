@@ -81,7 +81,7 @@ const useCartStore = create((set) => ({
     decreaseQuantity: (itemId) => set((state) => {
       const updatedCart = state.items.map(item => {
         if (item.id === itemId && item.quantity > 1) {
-          let quantity = item.quantity + 1
+          let quantity = item.quantity - 1
           let itemTotal = quantity * item.price
           return { ...item, quantity, itemTotal };
         }
