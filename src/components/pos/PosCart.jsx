@@ -6,7 +6,7 @@ import { FaPlusCircle } from "react-icons/fa";
 import useCartStore from "@/store/cartStore";
 
 const PosCart = () => {
-    const { items, addToCart, removeFromCart } = useCartStore();
+    const { items, addToCart, removeFromCart, increaseQuantity, decreaseQuantity } = useCartStore();
 
     const handleAddToCart = (item) => {
         addToCart(item)
@@ -14,6 +14,15 @@ const PosCart = () => {
 
     const handleRemoveFromCart = (item) => {
         removeFromCart(item)
+    }
+
+
+    const increaseItem = id => {
+        increaseQuantity(id)
+    }
+
+    const decreaseItem = id => {
+        decreaseQuantity(id)
     }
 
   return (
@@ -32,9 +41,9 @@ const PosCart = () => {
                         <span className="text-md lg:text-lg">${item.price}</span>
                     </div>
                     <div className="w-1/6 flex items-center text-[#B4B4B3]">
-                        <button><FaMinusCircle size={20}/></button>
-                        <span className="font-bold mx-3">1</span>
-                        <button><FaPlusCircle size={20}/></button>
+                        <button onClick={()=>decreaseItem(item.id)}><FaMinusCircle size={20}/></button>
+                        <span className="font-bold mx-3">{item.quantity}</span>
+                        <button onClick={()=>increaseItem(item.id)}><FaPlusCircle size={20}/></button>
                     </div>
                     <div className="w-1/6">
                         <span className="text-md lg:text-lg">& 92.00</span>

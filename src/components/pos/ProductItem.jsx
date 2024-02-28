@@ -3,7 +3,7 @@
 const ProductItem = ({item, addToCart}) => {
   
   return (
-    <div onClick={()=>addToCart({id: item.id, title: item.title, price:item.price})} className='rounded bg-white border-2 border-[#B4B4B8] text-center cursor-pointer'>
+    <div onClick={()=>addToCart({id: item.id, title: item.title, price:item.price, quantity: 1})} className='rounded bg-white border-2 border-[#B4B4B8] text-center cursor-pointer'>
         <div className="h-48">
             <img src={item.img} alt="" className="h-full w-full"/>
         </div>
