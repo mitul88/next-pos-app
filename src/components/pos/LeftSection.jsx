@@ -16,10 +16,10 @@ const LeftSection = () => {
     <div className="min-h-screen relative">
         <div className='py-2  flex items-center justify-between'>
             <button className="px-3"><RxHamburgerMenu size={25} /></button>
-            <LinkButton icon={<SlNote size={25} />} text="Note"  link="https://www.facebook.com" />
-            <LinkButton icon={<BsTruck size={25}/>} text="Shipping"  link="https://www.google.com" />
-            <LinkButton icon={<IoIosTimer size={25}/>} text="Hold Orders"  link="https://www.google.com" />
-            <LinkButton icon={<IoIosAddCircle size={25} />} text="New Item"  link="https://www.twitter.com" />
+            <LinkButton icon={<SlNote size={25} />} text="Note"  link="/" />
+            <LinkButton icon={<BsTruck size={25}/>} text="Shipping"  link="/" />
+            <LinkButton icon={<IoIosTimer size={25}/>} text="Hold Orders"  link="/" />
+            <LinkButton icon={<IoIosAddCircle size={25} />} text="New Item"  link="/" />
         </div>
 
         <div className="pb-2">

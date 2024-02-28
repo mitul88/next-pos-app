@@ -5,7 +5,7 @@ const useCartStore = create((set) => ({
     items: [],
     subTotal: 0,
     totalAmount: 0,
-    tax: 15.00,
+    tax: 25.00,
     shipping: 5.50,
     discount: 10.00,
     productQuantity: 0,
