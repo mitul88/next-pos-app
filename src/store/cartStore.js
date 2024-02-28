@@ -5,7 +5,7 @@ const useCartStore = create((set) => ({
     items: [],
     subTotal: 0,
     totalAmount: 0,
-    tax: 25.00,
+    tax: 15.00,
     shipping: 5.50,
     discount: 10.00,
     productQuantity: 0,
@@ -31,7 +31,8 @@ const useCartStore = create((set) => ({
             updatedSubTotal += item.itemTotal;
             productQuantity += item.quantity
           })
-          return { items: updatedCart, subTotal: updatedSubTotal, productQuantity };
+          let totalAmount = updatedSubTotal + state.tax + state.shipping - state.discount
+          return { items: updatedCart, subTotal: updatedSubTotal, productQuantity, totalAmount };
         }
 
         // Add new item to the cart
@@ -42,7 +43,8 @@ const useCartStore = create((set) => ({
           updatedSubTotal += item.itemTotal
           productQuantity += item.quantity
         })
-        return { items: updatedCart, subTotal: updatedSubTotal, productQuantity  };
+        let totalAmount = updatedSubTotal + state.tax + state.shipping - state.discount
+        return { items: updatedCart, subTotal: updatedSubTotal, productQuantity, totalAmount };
       }),
 
     removeFromCart: (itemId) => set((state) => {
@@ -53,7 +55,8 @@ const useCartStore = create((set) => ({
         updatedSubTotal += item.itemTotal
         productQuantity += item.quantity
       })
-      return { items: updatedCart, subTotal: updatedSubTotal, productQuantity };
+      let totalAmount = updatedSubTotal + state.tax + state.shipping - state.discount
+      return { items: updatedCart, subTotal: updatedSubTotal, productQuantity, totalAmount };
     }),
 
     increaseQuantity: (itemId) => set((state) => {
@@ -71,13 +74,14 @@ const useCartStore = create((set) => ({
         updatedSubTotal += item.itemTotal
         productQuantity += item.quantity
       })
-      return { items: updatedCart, subTotal: updatedSubTotal, productQuantity };
+      let totalAmount = updatedSubTotal + state.tax + state.shipping - state.discount
+      return { items: updatedCart, subTotal: updatedSubTotal, productQuantity, totalAmount };
     }),
     
     decreaseQuantity: (itemId) => set((state) => {
       const updatedCart = state.items.map(item => {
         if (item.id === itemId && item.quantity > 1) {
-          let quantity = item.quantity - 1
+          let quantity = item.quantity + 1
           let itemTotal = quantity * item.price
           return { ...item, quantity, itemTotal };
         }
@@ -89,7 +93,8 @@ const useCartStore = create((set) => ({
         updatedSubTotal += item.itemTotal
         productQuantity += item.quantity
       })
-      return { items: updatedCart, subTotal: updatedSubTotal, productQuantity }; 
+      let totalAmount = updatedSubTotal + state.tax + state.shipping - state.discount
+      return { items: updatedCart, subTotal: updatedSubTotal, productQuantity, totalAmount };
     })
   }));
   

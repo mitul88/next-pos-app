@@ -4,7 +4,8 @@ import useCartStore from "@/store/cartStore"
 
 
 const CartTotal = () => {
-    const {items, productQuantity, subTotal, tax, shipping, discount} = useCartStore()
+    const {items, totalAmount, productQuantity, subTotal, tax, shipping, discount} = useCartStore()
+
     const totalCalculaton = (
         <div className='w-full mt-5'>
             <div className="flex my-5">
@@ -35,7 +36,7 @@ const CartTotal = () => {
                             Total
                         </span>
                         <span>
-                            $50223  
+                            ${totalAmount}  
                         </span>
                     </div>
                 </div>
