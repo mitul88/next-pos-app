@@ -13,7 +13,7 @@ const ProductSection = () => {
     addToCart(item)
   }
   return (
-    <div className='pb-1 bg-[#ECF9FF]'>
+    <div className='pb-1 bg-[#ECF9FF] min-h-screen'>
         <SearchProducts />
         <div className='mt-3 px-4 flex items-center justify-between'>
           <LinkButton text="All Categories" color="#638889" solid="white"/>
