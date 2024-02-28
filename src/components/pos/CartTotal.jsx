@@ -25,7 +25,7 @@ const CartTotal = () => {
                         </div>
                         <div className="w-full py-2 flex items-center justify-between border border-t-[#C7C8CC] border-x-0 border-b-0">
                             <span className="tex-sm text-semibold text-blue-800">Discount</span>
-                            <span className="font-bold">${discount}</span>
+                            <span className="font-bold">-${discount}</span>
                         </div>
                     </div>
                 </div>
