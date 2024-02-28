@@ -4,7 +4,8 @@ import { create } from "zustand";
 const useCartStore = create((set) => ({
     items: [],
     subTotal: 0,
-    addToCart: (item) => set((state) => ({ items: [...state.items, item] })),
+    totalAmount: 0,
+    addToCart: (item) => set((state) => ({ items: [...state.items, item]})),
     removeFromCart: (itemId) => set((state) => ({ items: state.items.filter((item) => item.id !== itemId) })),
     increaseQuantity: (itemId) => set((state) => {
       const updatedCart = state.items.map(item => {
@@ -15,7 +16,9 @@ const useCartStore = create((set) => ({
         }
         return item;
       });
-      return { items: updatedCart };
+      let updatedSubTotal = 0;
+      updatedCart.forEach(item => updatedSubTotal += item.itemTotal)
+      return { items: updatedCart, subTotal: updatedSubTotal };
     }),
     decreaseQuantity: (itemId) => set((state) => {
       const updatedCart = state.items.map(item => {
@@ -26,7 +29,9 @@ const useCartStore = create((set) => ({
         }
         return item;
       });
-      return { items: updatedCart };  
+      let updatedSubTotal = 0;
+      updatedCart.forEach(item => updatedSubTotal += item.itemTotal)
+      return { items: updatedCart, subTotal: updatedSubTotal };  
     })
   }));
   

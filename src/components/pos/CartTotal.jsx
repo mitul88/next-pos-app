@@ -1,14 +1,18 @@
-import React from 'react'
+'use client'
+
+import useCartStore from "@/store/cartStore"
+
 
 const CartTotal = () => {
-  return (
+    const {subTotal} = useCartStore()
+    return (
     <div className='w-full mt-5'>
         <div className="flex">
             <div className="w-1/2"></div>
             <div className="w-1/2">
                 <div className="w-full py-2 flex items-center justify-between border border-t-[#C7C8CC] border-x-0 border-b-0">
                     <span className="tex-sm">Sub Total</span>
-                    <span className="font-bold">$5020</span>
+                    <span className="font-bold">${subTotal}</span>
                 </div>
                 <div className="w-full py-2 flex items-center justify-between border border-t-[#C7C8CC] border-x-0 border-b-0">
                     <span className="tex-sm">Tax</span>
