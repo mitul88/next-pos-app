@@ -46,7 +46,7 @@ const PosCart = () => {
                         <button onClick={()=>increaseItem(item.id)}><FaPlusCircle size={20}/></button>
                     </div>
                     <div className="w-1/6">
-                        <span className="text-md lg:text-lg">& 92.00</span>
+                        <span className="text-md lg:text-lg">${item.itemTotal}</span>
                     </div>
                 </div>
                 <div className="basis-1/12 flex justify-end">
